@@ -16,3 +16,7 @@ gamification_logs/
 stats.dump
 
 *undo-tree*
+.coverage
+.coverage.*
+
+scripts/

@@ -1,0 +1,11 @@
+[run]
+branch = True
+relative_files = True
+source =
+    simulator
+omit =
+    simulator/test_*.py
+    simulator/tests/*
+
+[report]
+skip_empty = True
