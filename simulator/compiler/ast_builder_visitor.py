@@ -97,9 +97,9 @@ class ASTBuilderVisitor(ArduinoVisitor):
         if ctx.a_def is not None:
             node = self.visitArray_declaration(ctx.a_def)
         if ctx.qual is not None:
-            if ctx.qual.text == "const":
+            if node is not None and ctx.qual.text == "const":
                 node.is_const = True
-            if ctx.qual.text == "static":
+            if node is not None and ctx.qual.text == "static":
                 node.is_static = True
         self.__add_line_info(node, ctx)
         return node

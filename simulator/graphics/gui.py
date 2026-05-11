@@ -1474,7 +1474,10 @@ class Arm3DConfigurationWindow(tk.Toplevel):
                         try:
                             a_val = float(a_e.get())
                             d_val = float(d_e.get())
-                            if a_val != 0.0 and d_val == 0.0:
+                            if (
+                                not math.isclose(a_val, 0.0, abs_tol=1e-9)
+                                and math.isclose(d_val, 0.0, abs_tol=1e-9)
+                            ):
                                 d_e.configure(state='normal')
                                 d_e.delete(0, tk.END)
                                 d_e.insert(0, str(a_val))
@@ -1498,7 +1501,10 @@ class Arm3DConfigurationWindow(tk.Toplevel):
                         try:
                             d_val = float(d_e.get())
                             a_val = float(a_e.get())
-                            if d_val != 0.0 and a_val == 0.0:
+                            if (
+                                not math.isclose(d_val, 0.0, abs_tol=1e-9)
+                                and math.isclose(a_val, 0.0, abs_tol=1e-9)
+                            ):
                                 d_e.delete(0, tk.END)
                                 d_e.insert(0, '0.0')
                                 a_e.delete(0, tk.END)

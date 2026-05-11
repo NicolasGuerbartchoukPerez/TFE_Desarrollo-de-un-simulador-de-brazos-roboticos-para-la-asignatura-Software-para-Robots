@@ -3,6 +3,7 @@ Standard Arduino library. Includes the methods pressent
 at: https://www.arduino.cc/reference/en/
 """
 
+import builtins
 import string
 import time
 import threading
@@ -414,7 +415,7 @@ def abs(x):
     Returns:
         the absolute value
     """
-    return abs(x)
+    return builtins.abs(x)
 
 
 def constrain(x, a, b):

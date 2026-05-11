@@ -46,7 +46,6 @@ class ASTNode(metaclass=BaseType):
             return getattr(visitor, f'visit_{name}')(self, param)
         else:
             raise Exception("Warning!")
-            print(f"Warning: {type(self)}.accept called from ASTNode!")
 
     def set_position(self, position):
         self.position = position

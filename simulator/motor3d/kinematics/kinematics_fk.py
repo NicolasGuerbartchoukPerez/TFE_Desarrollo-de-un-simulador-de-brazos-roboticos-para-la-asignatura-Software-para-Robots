@@ -53,12 +53,13 @@ def get_base_transform(model):
 
 def get_prismatic_pre_rotation(model, joint_idx):
     rotations = getattr(model, 'prismatic_pre_rotations', None) or []
-    if joint_idx < len(rotations) and isinstance(rotations[joint_idx], dict):
+    if 0 <= joint_idx < len(rotations):
         item = rotations[joint_idx]
-        return {
-            'yaw': float(item.get('yaw', 0.0)),
-            'pitch': float(item.get('pitch', 0.0)),
-        }
+        if isinstance(item, dict):
+            return {
+                'yaw': float(item.get('yaw', 0.0)),
+                'pitch': float(item.get('pitch', 0.0)),
+            }
     return {'yaw': 0.0, 'pitch': 0.0}
 
 

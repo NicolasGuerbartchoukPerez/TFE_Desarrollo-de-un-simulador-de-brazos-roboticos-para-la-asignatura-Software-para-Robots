@@ -451,12 +451,12 @@ class CodeGenerator(ast_visitor.ASTVisitor):
         self.write_to_script(")")
         return None
 
-    def visit_compound_assigment(self, compound_asigment: ast.CompoundAssignmentNode, param):
-        if compound_asigment.left is not None:
-            compound_asigment.left.accept(self, param)
-        self.write_to_script(" {} ".format(compound_asigment.op))
-        if compound_asigment.right is not None:
-            compound_asigment.right.accept(self, param)
+    def visit_compound_assignment(self, compound_assignment: ast.CompoundAssignmentNode, param):
+        if compound_assignment.left is not None:
+            compound_assignment.left.accept(self, param)
+        self.write_to_script(" {} ".format(compound_assignment.op))
+        if compound_assignment.right is not None:
+            compound_assignment.right.accept(self, param)
         return None
 
     def visit_inc_dec_expression(self, inc_dec_expression: ast.IncDecExpressionNode, param):

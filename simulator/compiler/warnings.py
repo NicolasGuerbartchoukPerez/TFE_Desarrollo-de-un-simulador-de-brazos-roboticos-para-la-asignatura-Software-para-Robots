@@ -92,9 +92,11 @@ class WarningAnalyzer(ast_visitor.ASTVisitor):
                 elif name is not None:
                     lib_name = name.type_name
                 # else: lib_name ya es el identificador (p. ej. "Braccio")
-        else:
-            f_name = function_call.name.value
+        elif function_call.name is not None:
+            f_name = getattr(function_call.name, 'value', '')
             lib_name = "Standard"
+        if not lib_name or not f_name:
+            return None
         lib_name = lib_name[0].upper() + lib_name[1:]
         message = self.lib_manager.not_implemented(lib_name, f_name)
         if message != "":
