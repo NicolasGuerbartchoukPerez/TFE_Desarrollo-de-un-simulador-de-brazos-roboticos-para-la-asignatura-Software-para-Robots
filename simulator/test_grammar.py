@@ -116,7 +116,7 @@ class TestAritmetico(TestBase):
 
 
 class TestComparisonBool(TestBase):
-    file = "tests/grammar-tests/ejemploComparisonBool.txt"
+    file = "tests/grammar-tests/EjemploComparisonBool.txt"
 
     def test_parsed(self):
         self.read_results(
